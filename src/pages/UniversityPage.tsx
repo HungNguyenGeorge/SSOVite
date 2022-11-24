@@ -33,7 +33,6 @@ import { UniversityListHead, UniversityListToolbar } from '../sections/@dashboar
 import Iconify from '../components/iconify';
 import Scrollbar from '../components/scrollbar';
 import { fetchUniversity, createUniversity, updateUniversity, deleteUniversity } from '../hooks/university';
-import React from 'react';
 
 const TABLE_HEAD = [
   { id: 'code', label: 'Code', alignRight: false },

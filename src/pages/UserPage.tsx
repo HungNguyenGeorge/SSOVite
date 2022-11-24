@@ -44,7 +44,7 @@ import Scrollbar from "../components/scrollbar";
 // sections
 import { UserListHead, UserListToolbar } from "../sections/@dashboard/user";
 // mock
-import USERLIST from "../_mock/user";
+// import USERLIST from "../_mock/user";
 
 import * as UserService from "../hooks/user";
 import * as UniversityService from "../hooks/university";
@@ -82,8 +82,8 @@ const validationSchema = yup.object({
   //   .string('Enter your password')
   //   .min(8, 'Password should be of minimum 8 characters length')
   //   .required('Password is required'),
-  name: yup.string("Name must be a string").required("Name is required"),
-  school: yup.string("School must be a string").required("School is required"),
+  name: yup.string().required("Name is required"),
+  school: yup.string().required("School is required"),
   status: yup.string().required("Status is required"),
   role: yup.string(),
   verified: yup.string(),
@@ -137,7 +137,7 @@ export default function UserPage() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const [universityDataSource, setUniversityDataSource] = useState([]);
-  const [userDataSource, setUserDataSource] = useState(USERLIST);
+  const [userDataSource, setUserDataSource] = useState([]);
 
   const [isCreate, setIsCreate] = useState(false);
 
@@ -149,7 +149,7 @@ export default function UserPage() {
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => {
     setOpenModal(false);
-    formik.handleReset();
+    formik.handleReset(null);
     setCurrRowFocus(null);
   };
 
@@ -264,7 +264,7 @@ export default function UserPage() {
       status: "active",
     },
     validationSchema,
-    onSubmit: async (value) => {
+    onSubmit: async (value: any) => {
       if (!value) return;
       value.isVerified = value.verified;
       value.id = faker.datatype.uuid();
@@ -356,7 +356,7 @@ export default function UserPage() {
             onDeleteIds={handleDeleteUser}
           />
 
-          <Scrollbar>
+          {/* <Scrollbar> */}
             <TableContainer sx={{ minWidth: 800 }}>
               <Table>
                 <UserListHead
@@ -473,7 +473,7 @@ export default function UserPage() {
                 )}
               </Table>
             </TableContainer>
-          </Scrollbar>
+          {/* </Scrollbar> */}
 
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
@@ -541,7 +541,7 @@ export default function UserPage() {
               value={formik.values.name}
               onChange={formik.handleChange}
               error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
+              // helperText={formik.touched.name && formik.errors.name}
             />
             {/* <TextField
               fullWidth
@@ -591,7 +591,7 @@ export default function UserPage() {
               value={formik.values.role}
               onChange={formik.handleChange}
               error={formik.touched.role && Boolean(formik.errors.role)}
-              helperText={formik.touched.role && formik.errors.role}
+              // helperText={formik.touched.role && formik.errors.role}
             />
             <FormControl>
               <InputLabel id="demo-simple-select-label">Status</InputLabel>
@@ -622,20 +622,20 @@ export default function UserPage() {
               value={formik.values.verified}
               onChange={formik.handleChange}
               error={formik.touched.verified && Boolean(formik.errors.verified)}
-              helperText={formik.touched.verified && formik.errors.verified}
+              // helperText={formik.touched.verified && formik.errors.verified}
             />
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button
+          {/* <Button
             color="primary"
             variant="contained"
             type="submit"
             onClick={formik.handleSubmit}
           >
             Submit
-          </Button>
-          <Button onClick={handleCloseModal}>Close</Button>
+          </Button> */}
+          {/* <Button onClick={handleCloseModal}>Close</Button> */}
         </DialogActions>
         {/* </Box> */}
       </Dialog>

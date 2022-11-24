@@ -36,19 +36,19 @@ export default function DashboardAppPage() {
 
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
+            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} sx={undefined} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
+            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} sx={undefined} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
+            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} sx={undefined} />
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
+            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'}  sx={undefined}/>
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -106,7 +106,8 @@ export default function DashboardAppPage() {
                 theme.palette.warning.main,
                 theme.palette.error.main,
               ]}
-            />
+              sx={undefined} 
+              subheader={undefined}              />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -137,8 +138,7 @@ export default function DashboardAppPage() {
                 { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
                 { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
               ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
-            />
+              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)} subheader={undefined}            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -150,8 +150,7 @@ export default function DashboardAppPage() {
                 description: faker.name.jobTitle(),
                 image: `/assets/images/covers/cover_${index + 1}.jpg`,
                 postedAt: faker.date.recent(),
-              }))}
-            />
+              }))} subheader={undefined}            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
@@ -168,8 +167,7 @@ export default function DashboardAppPage() {
                 ][index],
                 type: `order${index + 1}`,
                 time: faker.date.past(),
-              }))}
-            />
+              }))} subheader={undefined}            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={4}>
@@ -196,8 +194,7 @@ export default function DashboardAppPage() {
                   value: 443232,
                   icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} />,
                 },
-              ]}
-            />
+              ]} subheader={undefined}            />
           </Grid>
 
           <Grid item xs={12} md={6} lg={8}>
@@ -209,8 +206,7 @@ export default function DashboardAppPage() {
                 { id: '3', label: 'Stakeholder Meeting' },
                 { id: '4', label: 'Scoping & Estimations' },
                 { id: '5', label: 'Sprint Showcase' },
-              ]}
-            />
+              ]} subheader={undefined}            />
           </Grid>
         </Grid>
       </Container>

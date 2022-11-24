@@ -4,7 +4,6 @@ import { NavLink as RouterLink } from 'react-router-dom';
 import { Box, List, ListItemText } from '@mui/material';
 //
 import { StyledNavItem, StyledNavItemIcon } from './styles';
-import React from 'react';
 
 // ----------------------------------------------------------------------
 

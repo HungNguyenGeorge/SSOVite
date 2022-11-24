@@ -5,7 +5,6 @@ import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 //
 import { StyledLabel } from './styles';
-import React from 'react';
 
 // ----------------------------------------------------------------------
 

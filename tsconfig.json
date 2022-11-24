@@ -20,8 +20,8 @@
   //   "strictNullChecks": true
   // },
   "compilerOptions" :{
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es6",
+    "lib": ["es6","dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -31,16 +31,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict":false,
     "noImplicitAny": false,
     "skipLibCheck": true,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "noImplicitThis": true,
+    "types": ["vite/client"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "typeRoots": [
+    "../node_modules",
     "../node_modules/@types",
-    "../@types"
+    "../@types",
+    "src/**/*"
   ]
 }

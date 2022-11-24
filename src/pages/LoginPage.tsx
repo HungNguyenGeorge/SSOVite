@@ -32,7 +32,7 @@ const StyledSection = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  boxShadow: theme.customShadows.card,
+  boxShadow: theme.shadows[0],
   backgroundColor: theme.palette.background.default,
 }));
 
@@ -85,8 +85,7 @@ export default function LoginPage() {
             position: 'fixed',
             top: { xs: 16, sm: 24, md: 40 },
             left: { xs: 16, sm: 24, md: 40 },
-          }}
-        />
+          }} disabledLink={undefined}        />
 
         {mdUp && (
           <StyledSection>

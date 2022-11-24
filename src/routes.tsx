@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useMsal } from '@azure/msal-react';
-import { Navigate, useRoutes, useNavigate } from 'react-router-dom';
+import { Navigate , useRoutes, useNavigate  } from 'react-router-dom';
 // layouts
 // import DashboardLayout from './layouts/dashboard';
 // import SimpleLayout from './layouts/simple';
@@ -11,7 +11,8 @@ import LoginPage from './pages/LoginPage';
 import Page404 from './pages/Page404';
 import UniversityPage from './pages/UniversityPage';
 import DashboardAppPage from './pages/DashboardAppPage';
-import React from 'react';
+import SimpleLayout from './layouts/simple';
+import DashboardLayout from './layouts/dashboard';
 
 // ----------------------------------------------------------------------
 
@@ -29,10 +30,10 @@ export default function Router() {
   const routes = useRoutes([
     {
       path: '/dashboard',
-      // element: <DashboardLayout />,
+      element: <DashboardLayout />,
       children: [
         { element: <Navigate to="/dashboard/app" />, index: true },
-        // { path: 'app', element: <DashboardAppPage /> },
+        { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'university', element: <UniversityPage /> },
         { path: 'blog', element: <BlogPage /> },
@@ -43,7 +44,7 @@ export default function Router() {
       element: <LoginPage />,
     },
     {
-      // element: <SimpleLayout />,
+      element: <SimpleLayout />,
       children: [
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: '404', element: <Page404 /> },
