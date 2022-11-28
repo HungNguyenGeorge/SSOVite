@@ -4,7 +4,7 @@
  */
 
 import { LogLevel } from "@azure/msal-browser";
-
+console.log(import.meta.env.VITE_SOME_KEY);
 /**
  * Configuration object to be passed to MSAL instance on creation. 
  * For a full list of MSAL.js configuration parameters, visit:
@@ -12,14 +12,13 @@ import { LogLevel } from "@azure/msal-browser";
  */
 export const msalConfig = {
     auth: {
-        clientId: "d6b246eb-3591-4ef2-8049-681ddde9237e",
+        clientId: import.meta.env.VITE_MIRCROSOFT_SSO_CLIENDID,
         // authority: "http://localhost:3001",
         // redirectUri: "http://localhost:3001"
-        authority: "https://login.microsoftonline.com/common",
-        knownAuthorities: [],
-        redirectUri: "http://localhost:3000",
-        redirectUrl: "http://localhost:3000",
-        postLogoutRedirectUri: "http://localhost:3000/logout",
+        authority: import.meta.env.VITE_MIRCROSOFT_SSO_AUTHORITY,
+        redirectUri: import.meta.env.VITE_MIRCROSOFT_SSO_REDIRECT_URI,
+        redirectUrl: import.meta.env.VITE_MIRCROSOFT_SSO_REDIRECT_URL,
+        postLogoutRedirectUri: import.meta.env.VITE_MIRCROSOFT_SSO_REDIRECT_URI,
         navigateToLoginRequestUrl: true,
     },
     cache: {
@@ -37,6 +36,8 @@ export const msalConfig = {
                         console.error(message);
                         break;
                     case LogLevel.Info:
+
+                        console.info(import.meta.env.VITE_MIRCROSOFT_SSO_REDIRECT_URI);
                         console.info(message);
                         break;
                     case LogLevel.Verbose:
