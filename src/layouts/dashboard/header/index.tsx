@@ -11,6 +11,8 @@ import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
 import LanguagePopover from './LanguagePopover';
 import NotificationsPopover from './NotificationsPopover';
+import { alpha } from '@mui/material/styles';
+// import styled from 'styled-components';
 
 // ----------------------------------------------------------------------
 
@@ -20,13 +22,16 @@ const HEADER_MOBILE = 64;
 
 const HEADER_DESKTOP = 92;
 
-// const StyledRoot = styled(AppBar)(({ theme }) => ({
-//   ...bgBlur({ color: theme.palette.background.default }),
-//   boxShadow: 'none',
-//   [theme.breakpoints.up('lg')]: {
-//     width: `calc(100% - ${NAV_WIDTH + 1}px)`,
-//   },
-// })) as typeof AppBar;
+
+const StyledRoot = styled(AppBar)(({ theme }) => ({
+  backdropFilter: `blur(6px)`,
+  WebkitBackdropFilter: `blur(6px)`,
+  backgroundColor: alpha(theme.palette.background.default, 0.8),
+  boxShadow: 'none',
+  [theme.breakpoints.up('lg')]: {
+    width: `calc(100% - ${NAV_WIDTH + 1}px)`,
+  },
+}));
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   minHeight: HEADER_MOBILE,
@@ -44,7 +49,7 @@ Header.propTypes = {
 
 export default function Header({ onOpenNav }) {
   return (
-    <AppBar>
+    <StyledRoot>
       <StyledToolbar>
         <IconButton
           onClick={onOpenNav}
@@ -73,6 +78,6 @@ export default function Header({ onOpenNav }) {
           <AccountPopover />
         </Stack>
       </StyledToolbar>
-    </AppBar>
+    </StyledRoot>
   );
 }

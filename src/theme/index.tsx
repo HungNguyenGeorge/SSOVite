@@ -2,8 +2,9 @@ import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 // @mui
 import { CssBaseline } from '@mui/material';
-import { Shadows, Palette,  } from '@mui/material/styles';
+import { Shadows, Palette, Theme  } from '@mui/material/styles';
 import { ThemeProvider as MUIThemeProvider, createTheme, StyledEngineProvider } from '@mui/material/styles';
+// import { Theme } from '@mui/material/styles/createTheme';
 //
 import palette from './palette';
 import shadows from './shadows';
@@ -30,6 +31,7 @@ export default function ThemeProvider({ children }) {
     }),
     []
   );
+  console.log("🚀 ~ file: index.tsx ~ line 34 ~ ThemeProvider ~ themeOptions", themeOptions)
 
   const theme = createTheme(themeOptions);
   theme.components = componentsOverride(theme);
